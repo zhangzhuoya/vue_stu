@@ -1,75 +1,148 @@
 * {
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
-    color: #b3bcc5;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #b3bcc5;
 }
 
-html,body {
-    height: 100%;
+html,
+body {
+  height: 100%;
+  font-size: 14px;
+  color: #333;
 }
 .wrapper {
-    width: 100%;
-    height: 100%;
-    background-color: #eee;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
 }
+/* search */
 .wrapper .header {
-    height: 70px;
-    line-height: 70px;
-    background-color: #354457;
+  width: 100%;
+  height: 4.5rem;
+  background: linear-gradient(90deg, #333, #111, #aaa);
+  padding-left: 3rem;
+  box-sizing: border-box;
+  position: fixed;
+}
+.wrapper .header::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/bg.png') repeat center center;
+    opacity: .4;
 }
 .wrapper .header .logo {
-    padding-left: 20px;
-    width: 200px;
-    height: 70px;
-    line-height: 70px;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   color:#fff;
 }
 .wrapper .header .logo img {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    vertical-align: middle;
+  width: 3rem;
+  height: 3rem;
+}
+.wrapper .header .logo span{
+    margin-left: 1rem;
+    font-size: 1.7rem;
+    font-weight: bolder;
+    text-shadow: 4px 2px 6px #ccc;
+    animation: jumping 0.7s infinite alternate;
+
+
+  }
+  .wrapper .header .logo span:nth-of-type(1){
+   animation-delay: 0s;
+
+  }
+  .wrapper .header .logo span:nth-of-type(2){
+    animation-delay: 0.25s;
+ 
+   }
+   .wrapper .header .logo span:nth-of-type(3){
+    animation-delay: 0.5s;
+ 
+   }
+   .wrapper .header .logo span:nth-of-type(4){
+    animation-delay: 0.75s;
+ 
+   }
+@keyframes jumping{
+    0%{
+        transform: translateY(0);
+        text-shadow: 4px 2px 6px #ccc;
+
+    }
+    100%{
+        transform: translateY(-20px);
+        text-shadow: 4px 6px 6px #ccc;
+    }
 }
 .wrapper .left-menu {
-    /* float: left; */
-    /* display: inline-block; */
-    position: absolute;
-    left: 0;
-    top: 70px;
-    width: 200px;
-    height: calc(100% - 70px);
-    background-color: #4d5e70;
+  /* float: left; */
+  /* display: inline-block; */
+  position: fixed;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background: #ddd;
+  top:4.5rem;
+  left:0;
+  padding-top:2rem;
+  padding-left:2rem;
+  box-sizing: border-box;
+  background: linear-gradient(#333,#222,#111);
 }
-dl dt, dl dd {
-    /* width: 100%; */
-    height: 40px;
-    line-height: 40px;
+.wrapper .left-menu::after{
+	content:"";
+	display:block;
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background:url('../images/bg.png') repeat center center;
+	opacity: .4;
+	z-index:-1;
+}
+dl dt,
+dl dd {
+  /* width: 100%; */
+  height: 40px;
+  line-height: 40px;
 }
 dl dt {
-    padding-left: 8px;
-    font-weight: bold;
+  padding-left: 8px;
+  font-weight: bold;
 }
 dl dd {
-    padding-left: 30px;
-    cursor: pointer;
+  padding-left: 30px;
+  cursor: pointer;
 }
 dl dd:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #354457;
+    color: rgba(255,255,255,1.4);
+  
 }
 dl dd.active {
-    background-color: #ddd;
-    color: #354457;
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(255,255,255,.3);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 .wrapper .right-content {
-    width: calc(100% - 200px);
-    height: calc(100% - 70px);
-    float: left;
-    /* display: inline-block; */
-    position: absolute;
-    left: 200px;
-    top: 70px;
+    background-color: rgba(0,0,0,.1);
+  width: calc(100% - 200px);
+  height: calc(100% - 70px);
+  float: left;
+  /* display: inline-block; */
+  position: absolute;
+  left: 200px;
+  top: 63px;
 }
 /* 
     三种实现两列布局方式   缺点
@@ -78,171 +151,229 @@ dl dd.active {
     3. position: absolute;     定位固定的
 */
 .add-student-form {
-    width: 400px;
-    margin: 50px auto;
+  width: 400px;
+  margin: 50px auto;
+  border-radius: 5px;
 }
-.add-student-form input, .add-student-form label{
+.add-student-form input,
+.add-student-form label {
     font-size: 16px;
     color: #354457;
+    margin-left: 16px;
+    margin-top: 2px;
+    border-radius: 5px;
+    padding: 1px;
+    padding: 4px 3px 5px 4px;
+    border-color: #ccc;
+    outline: none;
+ 
 }
 .add-student-form label {
-    display: inline-block;
-    width: 80px;
-    text-align: right;
+  display: inline-block;
+  width: 80px;
+  text-align: right;
 }
 .add-student-form div {
-    margin: 10px 0px;
+  margin: 10px 0px;
 }
-.add-student-form .btn {
-    padding: 5px 30px;
+.add-student-form .btn-submit {
+    background-color: #006400;
+    padding: 7px 6px;
+    border-radius: 8px;
+    color: #fff;
+    border-color: #006400;
+    outline: none;
+    width: 80px;
+    text-align: center;
+
+}
+.add-student-form .btn-reset {
+    background-color: #aaa;
+    padding: 7px 6px;
+    border-radius: 8px;
+    color: #fff;
+    border-color: #aaa;
+    outline: none;
+    width: 80px;
+    text-align: center;
+
 }
 .add-student-form .sex span {
-    margin-right: 10px;
-    font-size: 16px;
-    color: #354457;
+  margin-right: 10px;
+  font-size: 16px;
+  color: #354457;
 }
 
-.student-list table, .student-list table tr td, .student-list table tr th {
-    font-size: 14px;
-    text-align: center;
+.student-list table,
+.student-list table tr td,
+.student-list table tr th {
+  font-size: 14px;
+  text-align: center;
+  border-spacing: 0px;
+  color:#111;
+  
 }
 .student-list table {
-    width: 100%;
+  width: 100%;
 }
 .student-list table thead {
-    background-color: #e3e8ee;
+    background-color: #ccc;
+    font-weight: 700;
+    font-size: 15px;
 }
 .student-list table tbody {
-    background-color: #fff;
+  background-color: #fff;
 }
 table tr th {
-    color: #646987;
+  color: #646987;
 }
 table tr td {
-    color: #354457;
-    min-width: 100px;
+  color: #354457;
+  min-width: 100px;
 }
-table tr th, table tr td {
-    padding: 10px 0;
+table tr th,
+table tr td {
+  padding: 10px 0;
 }
 
 table button.btn {
-    padding: 3px 10px;
-    border: none;
-    color: #fff;
-    cursor: pointer;
+  padding: 3px 10px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
 }
 table button.btn.edit {
-    background-color: #5cb85c;
+    background-color: #006400;
+    width: 65px;
+    height: 33px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bolder;
+    outline: none;
 }
 table button.btn.del {
-    background-color: #d9534f;
-}
-table button.btn.edit:hover{
+    background-color: #CD0000;
+    width: 65px;
+    height: 33px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
     color: #fff;
-    background-color: #398439;
-    border-color: #255625;
+    font-weight: bolder;
+    outline: none;
+}
+table button.btn.edit:hover {
+  color: #fff;
+  background-color: #006400;
 }
 table button.btn.del:hover {
-    color: #fff;
-    background-color: #c9302c;
+  color: #fff;
+  background-color: #c9302c;
 }
+/* edit-submit */
 
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 .modal.show {
-    display: block;
+  display: block;
 }
 .modal .mask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .modal .modal-content {
     background-color: #fff;
     position: absolute;
-    width: 500px;
+    width: 439px;
     height: 450px;
     left: 50%;
     top: 50%;
     margin-left: -250px;
     margin-top: -225px;
     padding: 20px;
+    border-radius: 10px;
 }
 .modal .modal-content h2 {
-    font-size: 16px;
+    font-size: 19px;
+    top: 20px;
+    position: absolute;
+    left: 50px;
+    color: #111;
 }
 
 .content {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #turn-page {
-    float: right;
-    /* border: 1px solid #000; */
-    margin: 10px;
+  float: right;
+  /* border: 1px solid #000; */
+  margin: 10px;
 }
 #turn-page li {
-    display: inline-block;
-    padding: 3px 10px;
-    border: 1px solid #ddd;
-    height: 25px;
-    line-height: 25px;
-    cursor: pointer;
-    margin: 0 5px;
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid #ddd;
+  height: 25px;
+  line-height: 25px;
+  cursor: pointer;
+  margin: 0 5px;
 }
 #turn-page li.cur-page {
-    background-color: #428bca;
-    border: 1px solid #428bca;
-    color: #fff;
+  background-color: #428bca;
+  border: 1px solid #428bca;
+  color: #fff;
 }
 
 .search {
-    height: 60px;
-    line-height: 60px;
-    font-size: 16px;
-    padding: 0px 20px;
-    background-color: #eee;
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  padding: 0px 20px;
+  background-color: #eee;
 }
 .search label {
-    font-size: 16px;
-    color: #646987;
-    font-weight: 800;
+    color: #111;
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .search input {
-    font-size: 16px;
-    width: 200px;
-    height: 30px;
-    border: none;
-    outline: none;
+  font-size: 16px;
+  width: 200px;
+  height: 30px;
+  outline: none;
+  border-radius: 5px;
+  padding: 2px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    margin-right: 10px;
 }
 #search-submit {
-    height: 28px;
-    line-height: 28px;
-    padding: 0 10px;
-    outline: none;
-    display: inline-block;
-    border: none;
-    background-color: #354457;
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
     color: #fff;
-    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
     cursor: pointer;
-    vertical-align: center;
-    /* border: 1px solid #000; */
 }
 #search-submit:hover {
-    background: #1e2936;
+  background: #1e2936;
 }

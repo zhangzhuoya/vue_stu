@@ -7,7 +7,9 @@ const instance = axios.create({
   method: "get", //设置请求方式
   params: {
     //'设置默认的拼接appkey'
-    appkey: "zhangzhuo_1581653670182",
+    // appkey: "zhangzhuo_1581653670182",
+    appkey: "DuYiyongzhi_1564986206465",
+
   },
 });
 
@@ -26,6 +28,48 @@ function addStu(options) {
     },
   });
 }
+function searchList(search,page,size) {
+  return instance({
+    url:URLs.searchStu,
+    params:{
+      search,
+      page,
+      size,
+      sex:-1
+    }
+  }) 
+}
+function getFindPage(page,size) {
+  return instance({
+    url:URLs.findByPage,
+    params:{
+      page,
+      size
+    }
+  }) 
+}
+function del(sNo) {
+  return instance({
+    url:URLs.delStu,
+    params:{
+      sNo
+    }
+  })
+  
+}
+function updateStu(options) {
+    return instance({
+      url:URLs.updateStu,
+      params:{
+        ...options
+      }
+    })
+    
+  }
 export default {
   addStu,
+  updateStu,
+  getFindPage,
+  searchList,
+  del
 };

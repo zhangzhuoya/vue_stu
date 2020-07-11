@@ -34,8 +34,8 @@
       </div>
       <div>
         <label for></label>
-        <input type="button" value="提交" class="btn" id="add-submit" @click="commit" />
-        <input type="button" value="重置" class="btn" @click="reset" />
+        <input type="button" value="提交" class="btn-submit" id="add-submit" @click="commit" />
+        <input type="button" value="重置" class="btn-reset" @click="reset" />
       </div>
     </form>
   </div>
@@ -67,6 +67,8 @@ export default {
           alert("error");
         } else{
           this.$router.push("/stuList");
+          console.log(this.value);
+          
         }
       } catch (error) {
         console.log(error);

@@ -23,21 +23,37 @@
         <td>{{ new Date().getFullYear() - item.birth }}</td>
         <td>{{ item.phone }}</td>
         <td>{{ item.address }}</td>
-      </tr>
-       <td>
+         <td>
           <button class="btn edit" @click="edit(item)">编辑</button>&nbsp;
           <button class="btn del" @click="del(item.sNo)">删除</button>
         </td>
+      </tr>
+      
     </tbody>
   </table>
 </template>
 
 <script>
-import { mapState, mapActions, mapMutations} from "vuex";
-export default {
+import { mapState, mapMutations,mapActions} from "vuex";
+export default { 
   computed: {
-   
+   ...mapState({
+     stuList:state=>state.stuList
+   }),
+
   },
+  methods:{
+   ...mapMutations(['setModal','setStu']),
+   ...mapActions(['delStu']),
+    edit(stu){
+         this.setStu(stu);
+         this.setModal(true);
+         console.log('a');
+    },
+     del(sNo) {
+        this.delStu(sNo);
+    }
+  }
 };
 </script>
 

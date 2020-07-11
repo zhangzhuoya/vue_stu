@@ -1,26 +1,35 @@
 <template>
   <div class="search">
-      <label for="search-word">关键词：</label>
-      <input type="text" id="search-word" />
-      <button id="search-submit">搜索</button>
-
-      <form id="search-form">
-        <input type="radio" name="sex" id="male" value="0" />
-        <label for="male">男</label>
-        <input type="radio" name="sex" id="female" value="1" />
-        <label for="female">女</label>
-        <input type="radio" checked name="sex" id="all" value="-1" />
-        <label for="all">不限</label>
-      </form>
-    </div>
+    <label for="search-word">关键词：</label>
+    <input type="text" id="search-word" v-model="words" />
+    <button id="search-submit" @click="searchValue">搜索</button>
+  </div>
 </template>
 
 <script>
-export default {
+import { mapActions, mapMutations } from "vuex";
 
-}
+export default {
+  data() {
+    return {
+      words: ""
+    };
+  },
+  methods: {
+    ...mapActions(["getStuList", "searchList"]),
+    ...mapMutations(["setSearchValue"]),
+    searchValue() {
+      this.setSearchValue(this.words);
+      if (this.words === "") {
+        this.getStuList(1);
+
+      } else {
+        this.searchList(1);
+      }
+    }
+  }
+};
 </script>
 
 <style>
-
 </style>

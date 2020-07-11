@@ -5,19 +5,27 @@ import StudentShow from "@/view/StudentShow";
 
 Vue.use(VueRouter);
 
-const routes = [{
-    path:'/studentshow',
-    component:StudentShow
-}, {
-    path:'/studentadd',
-    component:StudentAdd
-}, {
-    path:'*',
-    redirect:'/studentshow'
-}];
+const routes = [
+  {
+    path: "/studentshow",
+    component: StudentShow,
+  },
+  {
+    path: "/studentadd",
+    component: StudentAdd,
+  },
+  {
+    path: "/studentecharts",
+    component: StudentEcharts,
+  },
+  {
+    path: "*",
+    redirect: "/studentshow",
+  },
+];
 const router = new VueRouter({
   mode: "history",
-  linkExactActiveClass:"active",
-  routes
+  linkExactActiveClass: "active",
+  routes,
 });
-export default router
+export default router;
