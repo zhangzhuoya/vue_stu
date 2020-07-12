@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import StudentAdd from "@/view/StudentAdd";
 import StudentShow from "@/view/StudentShow";
-
+import StudentEcharts from "@/view/StudentEcharts"
 Vue.use(VueRouter);
 
 const routes = [

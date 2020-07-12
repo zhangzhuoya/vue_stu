@@ -5,4 +5,5 @@ export default{
     delStu :'/api/student/delBySno',
     updateStu:'/api/student/updateStudent',
     addStu:'/api/student/addStudent',
+    findAll:'/api/student/findAll'
 }

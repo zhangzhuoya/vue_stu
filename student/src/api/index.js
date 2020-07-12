@@ -28,6 +28,13 @@ function addStu(options) {
     },
   });
 }
+function findAll() {
+  return instance({
+    url:URLs.findAll
+  })
+
+  
+}
 function searchList(search,page,size) {
   return instance({
     url:URLs.searchStu,
@@ -71,5 +78,6 @@ export default {
   updateStu,
   getFindPage,
   searchList,
-  del
+  del,
+  findAll
 };
